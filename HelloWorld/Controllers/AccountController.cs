@@ -69,6 +69,7 @@ namespace HelloWorld.Controllers
             return View();
         }
 
+        // Async action method? What's that do?
         //
         // POST: /Account/Register
         [HttpPost]
@@ -79,6 +80,7 @@ namespace HelloWorld.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.UserName };
+                // Await an async!
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
